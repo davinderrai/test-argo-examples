@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-app2
+spec:
+  destination:
+    namespace: backend
+    server: https://kubernetes.default.svc
+  source:
+    path: helm-webapp2
+    repoURL: https://github.com/davinderrai/test-argo-examples
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values-dev.yaml
+  sources: []
+  project: development
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+      enabled: true
+    syncOptions:
+      - CreateNamespace=true
+
