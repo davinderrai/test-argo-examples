@@ -14,7 +14,7 @@ spec:
     directory:
       recurse: true    
   sources: []
-  project: default
+  project: backend
   syncPolicy:
     automated:
       prune: false
