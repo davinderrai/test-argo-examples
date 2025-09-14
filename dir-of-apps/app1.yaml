@@ -7,11 +7,18 @@ spec:
   destination: 
     namespace: backend
     server: "https://kubernetes.default.svc"
-  project: default
-  source: 
+  source:
     path: apps/app1
     repoURL: git@github.com:davinderrai/test-argo-examples.git
     targetRevision: HEAD
+    directory:
+      recurse: true    
+  sources: []
+  project: default
   syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+      enabled: true
     syncOptions:
       - CreateNamespace=true
