@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata: 
   name: app2
-  namespace: backend
+  namespace: argocd
 spec: 
   destination: 
     namespace: backend
@@ -14,7 +14,7 @@ spec:
     directory:
       recurse: true    
   sources: []
-  project: backend
+  project: default
   syncPolicy:
     automated:
       prune: false
